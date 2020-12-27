@@ -1,0 +1,83 @@
+#radio-buttons {
+    position: absolute;
+    left: 50%;
+    margin-left: -170px;
+    top: 50%;
+    margin-top: -170px;
+}
+
+.radio-button {
+    text-anchor: middle;
+    font-size: 35px;
+    fill: rgba(21, 108, 148, 1);
+}
+
+.radio-button-icon {
+    fill: rgba(255, 255, 255, 0.5);
+}
+
+.station-name-text {
+    font-size: 28px;
+}
+
+[data-visible="true"] {
+    visibility: visible;
+}
+
+[data-visible="false"] {
+    visibility: hidden;
+}
+
+.rename-button {
+    right: 2.5rem !important;
+}
+
+.scan-progress {
+    text-align: center;
+}
+
+.hidden {
+    display: none !important;
+}
+
+.unnamed {
+    fill-opacity: 0.4;
+}
+
+.popup-text {
+    text-align: center;
+}
+
+.input-error {
+    color: red;
+}
+
+.second-right-icon {
+    right: 74px !important;
+}
+
+[data-icon='grid']:after {
+    -webkit-mask-image: url('../images/00_button_grid.png');
+}
+
+[data-icon='rename']:after {
+    -webkit-mask-image: url('../lib/tau/mobile/theme/default/images/page/00_icon_edit.png');
+}
+
+[data-icon='delete']:after {
+    -webkit-mask-image: url('../lib/tau/mobile/theme/default/images/page/00_icon_delete.png');
+}
+
+#station-prev-button, #station-next-button {
+    font-size: 10vw !important;
+}
+
+#main-page-popup-text {
+    text-align: center !important;
+    padding: 3vh !important;
+}
+
+.ui-state-disabled {
+    color: rgba(255, 255, 255, 1);
+    opacity: 0.64;
+}

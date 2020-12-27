@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
+    <meta name="description" content="FM Radio sample application"/>
+
+    <title>FM Radio</title>
+
+    <link rel="stylesheet" type="text/css" href="./lib/tau/mobile/theme/default/tau.min.css"/>
+    <link rel="stylesheet" type="text/css" href="css/tau-custom.css"/>
+    <link rel="stylesheet" type="text/css" href="css/style.css"/>
+</head>
+
+<body>
+    <div class="ui-page" id="main-page">
+
+        <div id="main-page-popup" class="ui-popup">
+            <div class="ui-popup-header">
+                <span id="main-page-popup-title"></span>
+            </div>
+            <div class="ui-popup-content popup-content-padding">
+                <div id="main-page-popup-text"></div>
+                <div class="ui-progressbar" id="main-page-popup-progress"></div>
+                <div id="main-page-popup-input-container">
+                    <input id="main-page-popup-input" type="text">
+                </div>
+            </div>
+            <div id="main-page-popup-footer" class="ui-popup-footer ui-grid-col-2">
+                <a class="ui-btn" id="main-page-popup-no-btn" data-rel="back" data-inline="true">No</a>
+                <a class="ui-btn" id="main-page-popup-yes-btn" data-inline="true">Yes</a>
+            </div>
+        </div>
+
+        <div data-role="header">
+            <h1>FM Radio</h1>
+        </div>
+        <div class="ui-content" id="main-content">
+            <svg width="340" height="340" id="radio-buttons">
+                <linearGradient id="station-name-gradient" gradientUnits="userSpaceOnUse" x1="90.045631" y1="148.30775" x2="249.69708" y2="148.30775">
+                    <stop offset="0" style="stop-color:#000000" />
+                    <stop offset="0.23322314" style="stop-color:#ffffff"/>
+                    <stop offset="0.75454545" style="stop-color:#ffffff"/>
+                    <stop offset="1" style="stop-color:#000000" />
+                </linearGradient>
+                <mask id="station-name-mask">
+                    <rect x="90.045631" y="130.07767" width="159.65146" height="36.460194" style="fill:url(#stationNameGradient);"/>
+                </mask>
+
+                <g id="scan-button" class="radio-button">
+                    <path d="m 126.50205,245.96675 -40.999995,71.0312 c 24.765305,14.2303 53.385675,22.5 83.999995,22.5 30.61433,0 59.23469,-8.2697 84,-22.5 l -41,-71.0312 c -12.68075,7.24043 -27.3567,11.375 -43,11.375 -15.6421,0 -30.32414,-4.1356 -43,-11.375 z"/>
+                    <text class="radio-button-icon scan-text" id="scan-label" y="303.41595" x="169.27745">Scan</text>
+                </g>
+                <g id="mute-button" class="radio-button">
+                    <path d="m 169.50205,1.466745 c -30.6129,0 -59.23548,8.27091 -83.999995,22.5 l 41.031245,71.0625 c 12.67036,-7.23511 27.33655,-11.375 42.96875,-11.375 15.63349,0 30.29345,4.13878 42.96875,11.375 l 41.03125,-71.0625 c -24.76453,-14.22909 -53.3871,-22.5 -84,-22.5 z"/>
+                    <path class="radio-button-icon" d="m 141.7516,38.797995 0,18 14.4,0 13.5,8.1 0,-33.3 -13.5,7.2 z"/>
+                    <path id="mute-icon" class="radio-button-icon" data-visible="false" d="m 175.06011,39.964298 2.8125,-2.812502 19.37988,19.379884 -2.8125,2.812501 z m 2.8125,19.379895 -2.8125,-2.8125 19.37989,-19.379884 2.8125,2.8125 z"/>
+                    <path id="sound-icon" class="radio-button-icon" data-visible="true" d="m 177.15581,40.00428 8.98437,-8.984375 3.51563,3.515629 -8.98438,8.984375 z m 3.51564,12.007871 8.98438,8.984378 -3.51563,3.515626 -8.98438,-8.984379 z m 3.2868,-6.45583 12.70583,2e-6 0,4.971838 -12.70583,1e-6 z"/>
+                </g>
+                <g id="tune-down-button" class="radio-button">
+                    <path d="M 84.627055,24.497995 C 34.498038,53.707075 0.68438949,107.83541 0.50205499,169.998 l 82.15625001,0 c 0.181157,-31.73706 17.403075,-59.46412 42.968745,-74.468755 z"/>
+                    <path class="radio-button-icon" d="m 79.948954,94.339697 -21.664388,15.748563 21.294489,15.47968 z m -24.257813,0 -21.664388,15.748563 21.29449,15.47968 z"/>
+                </g>
+                <g id="tune-up-button" class="radio-button">
+                    <path d="m 254.37705,24.497995 -41.03125,71.0625 c 25.57479,15.004525 42.8187,42.700115 43,74.437505 l 82.15625,0 C 338.31972,107.83541 304.50607,53.707075 254.37705,24.497995 z"/>
+                    <path class="radio-button-icon" d="m 285.50704,125.56794 21.6644,-15.74857 -21.2945,-15.479673 z m -24.25781,0 21.66439,-15.74857 -21.29449,-15.479673 z"/>
+                </g>
+                <g id="previous-button" class="radio-button">
+                    <path d="M 0.50205499,170.998 C 0.68440119,233.16459 34.492701,287.29026 84.627055,316.49795 l 40.999995,-71.0312 C 100.0595,230.46971 82.836963,202.73787 82.658305,170.998 z"/>
+                    <path class="radio-button-icon" d="m 31.245801,213.46199 3.090721,0 0,31.84577 -3.090721,0 z m 51.484105,0.32186 -21.664388,15.74857 21.29449,15.47967 z m -24.257813,0 -21.664387,15.74857 21.294489,15.47967 z"/>
+                </g>
+                <g id="next-button" class="radio-button">
+                    <path d="m 256.3458,170.998 c -0.1788,31.7402 -17.42332,59.44057 -43,74.4375 l 41.03125,71.06245 c 50.13436,-29.20769 83.94265,-83.33336 84.125,-145.49995 z"/>
+                    <path class="radio-button-icon" d="m 309.95238,213.46199 -3.09071,0 0,31.84577 3.09071,0 z m -51.4841,0.32188 21.66439,15.74857 -21.29448,15.47968 z m 24.25781,0 21.66439,15.74857 -21.29448,15.47968 z"/>
+                </g>
+                <g id="text-circle">
+                    <text class="radio-button station-name-text unnamed" id="station-name" x="168.73535" y="157.69902">UNNAMED</text>
+                    <text class="radio-button" id="station-frequency" x="169.56055" y="219.36346">87.5</text>
+                </g>
+            </svg>
+        </div>
+        <div class="ui-footer">
+            <button class="ui-state-disabled" id="station-prev-button">&lt;</button>
+            <button class="ui-state-disabled" id="stations-button" data-icon="grid"></button>
+            <button class="ui-state-disabled" id="station-next-button">&gt;</button>
+        </div>
+    </div>
+    <div data-role="page" id="stations-page">
+
+        <div id="stations-page-popup"  class="ui-popup">
+            <div class="ui-popup-header">
+                <span id="stations-page-popup-title"></span>
+            </div>
+            <div class="ui-popup-content popup-content-padding">
+                <div id="stations-page-popup-text" class="popup-text"></div>
+                <div id="stations-page-popup-progress" data-role="progressbar"></div>
+                <div id="stations-page-popup-input-container">
+                    <input id="stations-page-popup-input" type="text">
+                </div>
+            </div>
+            <div  id="stations-page-popup-footer" class="ui-popup-footer">
+                <a class="ui-btn" id="stations-page-popup-no-btn" data-rel="back" data-inline="true">No</a>
+                <a class="ui-btn" id="stations-page-popup-yes-btn" data-inline="true">Yes</a>
+            </div>
+        </div>
+
+        <div data-role="header">
+            <h1>FM Radio</h1>
+        </div>
+        <div data-role="content">
+            <ul id="station-list" class="ui-listview ui-colored-list">
+            </ul>
+        </div>
+        <div class="ui-footer" data-position="fixed">
+            <button id="remove-all-button">
+                Remove all
+            </button>
+        </div>
+    </div>
+    <script src="./js/core/core.js" data-main="./js/app.js"></script>
+    <script src="./lib/tau/mobile/js/tau.min.js"></script>
+</body>
+</html>

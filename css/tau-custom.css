@@ -1,0 +1,165 @@
+/*************************************************
+                Listview
+**************************************************/
+.li-text-sub {
+    position: absolute;
+    top: 0;
+    right: 16px;
+    height: 100%;
+    line-height: 60px;
+    float: right;
+    text-align: right;
+    font-size: 16px;
+    color: rgba(77, 77, 77, 1);
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    overflow: hidden;
+}
+
+/********************* list have right button **********************/
+.li-has-right-btn .ui-btn,
+.li-has-right-circle-btn .ui-btn {
+    position: absolute;
+    top: 50%;
+    right: 16px;
+}
+
+/******************* list have left thumbnail image ********************/
+.ui-li-anchor.li-has-thumb > a,
+.ui-li-static.li-has-thumb {
+    padding-left: 51px;
+}
+.ui-li-anchor.li-has-thumb > a .li-thumb,
+.ui-li-static.li-has-thumb .li-thumb {
+    position: absolute;
+    left: 16px;
+    top: 50%;
+    margin-top: -13px;
+    width: 27px;
+    height: 27px;
+}
+
+/***************** list has checkbox/radio ***********************/
+.ui-li-anchor.li-has-checkbox > a,
+.ui-li-anchor.li-has-radio > a,
+.ui-li-static.li-has-checkbox,
+.ui-li-static.li-has-radio {
+    padding-left: 50px;
+}
+
+.li-has-checkbox input.ui-checkbox:first-child,
+.li-has-radio input.ui-checkbox:first-child,
+.li-has-checkbox input.ui-radio:first-child,
+.li-has-radio input.ui-radio:first-child {
+    position: absolute;
+    top: 50%;
+    margin-top: -13px;
+    left: 16px;
+}
+
+/**************** right toggle switch ************/
+.li-has-right-btn .ui-toggle-container {
+    position: absolute;
+    top: 50%;
+    margin-top: -20px;
+    right: 16px;
+    left: auto;
+}
+
+/****************************************************************/
+/*              Multiline List Style                            */
+/****************************************************************/
+.ui-listview .li-has-multiline.ui-li-anchor > a,
+.li-has-multiline.ui-li-static {
+    padding-top: 11px;
+    padding-bottom: 38px;
+}
+.li-has-multiline .li-text-sub {
+    top: 39px;
+    left: 16px;
+    line-height: 22px;
+    float: left;
+    text-align: left;
+    height: auto;
+}
+.li-has-multiline .li-text-sub,
+.li-has-multiline .li-text-sub3 {
+    max-width: 100%;
+    -moz-box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
+    right: auto;
+}
+.li-has-multiline .li-text-sub .li-icon-sub,
+.li-has-multiline .li-text-sub3 .li-icon-sub,
+.li-has-multiline .li-text-sub img,
+.li-has-multiline .li-text-sub3 img {
+    position: relative;
+    width: 15px;
+    height: 15px;
+    margin-right: 1px;
+    margin-bottom: 0;
+}
+.li-has-multiline .li-text-sub2,
+.li-has-multiline .li-text-sub3 {
+    position: absolute;
+    font-size: 16px;
+    color: rgba(77, 77, 77, 1);
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    -o-text-overflow: ellipsis;
+    overflow: hidden;
+}
+.li-has-multiline .li-text-sub2 {
+    top: 0;
+    right: 16px;
+    float: right;
+    text-align: right;
+    height: 100%;
+    line-height: 72px;
+}
+.li-has-multiline .li-text-sub3 {
+    top: 61px;
+    left: 16px;
+    line-height: 25px;
+}
+.li-has-multiline .ui-progressbar {
+    margin-left: -4px;
+    margin-top: 9px;
+    margin-bottom: -3px;
+    width: 100%;
+}
+.li-has-multiline.ui-li-anchor.li-has-thumb > a .li-text-sub,
+.li-has-multiline.ui-li-static.li-has-thumb .li-text-sub {
+    left: 51px;
+}
+.li-has-multiline.ui-li-anchor.li-has-checkbox > a .li-text-sub,
+.li-has-multiline.ui-li-anchor.li-has-radio > a .li-text-sub,
+.li-has-multiline.ui-li-static.li-has-checkbox .li-text-sub,
+.li-has-multiline.ui-li-static.li-has-radio .li-text-sub {
+    left: 50px;
+}
+.li-has-multiline.ui-li-anchor.li-has-thumb.li-has-checkbox > a .li-text-sub,
+.li-has-multiline.ui-li-anchor.li-has-thumb.li-has-radio > a .li-text-sub,
+.li-has-multiline.ui-li-static.li-has-thumb.li-has-checkbox .li-text-sub,
+.li-has-multiline.ui-li-static.li-has-thumb.li-has-radio .li-text-sub {
+    left: 77px;
+}
+.li-has-multiline.ui-li-anchor.li-has-thumb.li-thumbnail-right > a,
+.li-has-multiline.ui-li-static.li-has-thumb.li-thumbnail-right {
+    padding-left: 16px;
+}
+.li-has-multiline.ui-li-anchor.li-has-thumb.li-thumbnail-right > a .li-thumb,
+.li-has-multiline.ui-li-static.li-has-thumb.li-thumbnail-right .li-thumb {
+    float: right;
+    left: auto;
+    right: 16px;
+}
+.li-has-multiline.ui-li-anchor.li-has-thumb.li-thumbnail-right > a .li-text-sub,
+.li-has-multiline.ui-li-static.li-has-thumb.li-thumbnail-right .li-text-sub {
+    left: 16px;
+}
+.li-has-multiline.li-has-3-lines.ui-li-anchor > a,
+.li-has-multiline.li-has-3-lines.ui-li-static {
+    padding-bottom: 55px;
+}
